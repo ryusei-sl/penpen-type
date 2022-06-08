@@ -1,11 +1,20 @@
 import Image from "next/image";
+import Link from "next/link";
+import { FC } from "react";
 
-export const Header = () => {
+export const Header: FC = () => {
   return (
-    <div className="text-center m-4">
-      <h1 className="text-red-600 font-bold text-4xl ">Hello TypeScript</h1>
-      <Image src="/penpen.png" alt="penpen" width={300} height={300} />
-      <h2>ぺんぺんがtypescriptを勉強するよ</h2>
+    <div>
+      <header className="flex items-center justify-between px-8 h-14 bg-indigo-200">
+        <Image src="/logo.svg" alt="logo" width={20} height={20} />
+        <ul>
+          <li>
+            <Link href="/about">
+              <a className="p-2">このサイトについて</a>
+            </Link>
+          </li>
+        </ul>
+      </header>
     </div>
   );
 };
