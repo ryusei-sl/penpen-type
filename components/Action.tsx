@@ -27,24 +27,28 @@ export const Action: FC = () => {
         <span className="text-blue-700 font-bold">ぺんぺん</span>
         したいことを書いてみよう
       </h1>
-      <input
-        className="border p-2"
-        type="text"
-        onChange={updateValue}
-        value={text}
-      />
-      <button
-        className=" bg-blue-700 text-white ml-2 p-2 rounded-lg"
-        onClick={handleClick}
-      >
-        ぺんぺんしてね
-      </button>
-      <button
-        className=" bg-blue-700 text-white ml-2 p-2 rounded-lg"
-        onClick={listReset}
-      >
-        気がすんだ？
-      </button>
+      <div className="flex flex-col items-center">
+        <input
+          className="border p-2 mb-2"
+          type="text"
+          onChange={updateValue}
+          value={text}
+        />
+        <div>
+          <button
+            className=" bg-blue-700 text-white ml-2 p-2 rounded-lg"
+            onClick={handleClick}
+          >
+            ぺんぺんしてね
+          </button>
+          <button
+            className=" bg-blue-700 text-white ml-2 p-2 rounded-lg"
+            onClick={listReset}
+          >
+            気がすんだ？
+          </button>
+        </div>
+      </div>
 
       <ul>
         {list.map((item, index) =>
