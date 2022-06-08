@@ -23,24 +23,24 @@ export const Action: FC = () => {
   };
   return (
     <div className="text-center">
-      <h1 className="text-4xl mb-6">
+      <h1 className="text-2xl mb-6">
         <span className="text-blue-700 font-bold">ぺんぺん</span>
         したいことを書いてみよう
       </h1>
       <input
-        className="border p-4"
+        className="border p-2"
         type="text"
         onChange={updateValue}
         value={text}
       />
       <button
-        className=" bg-blue-700 text-white ml-4 p-4 rounded-lg"
+        className=" bg-blue-700 text-white ml-4 p-2 rounded-lg"
         onClick={handleClick}
       >
         ぺんぺんしてね
       </button>
       <button
-        className=" bg-blue-700 text-white ml-4 p-4 rounded-lg"
+        className=" bg-blue-700 text-white ml-4 p-2 rounded-lg"
         onClick={listReset}
       >
         気がすんだ？
