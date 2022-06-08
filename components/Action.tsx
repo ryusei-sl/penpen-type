@@ -22,7 +22,7 @@ export const Action: FC = () => {
     setList([]);
   };
   return (
-    <div className="text-center">
+    <div className="text-center min-h-[200px] ">
       <h1 className=" mb-6">
         <span className="text-blue-700 font-bold">ぺんぺん</span>
         したいことを書いてみよう
