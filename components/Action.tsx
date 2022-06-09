@@ -1,13 +1,30 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 export const Action: FC = () => {
   const [text, setText] = useState("");
   const [list, setList] = useState<string[]>([]);
 
-  const handleClick = () => {
+  useEffect(() => {
+    loadStorage();
+  }, []);
+
+  //おもいだす
+  const loadStorage = () => {
+    const s = JSON.parse(localStorage.getItem("list") as string);
+    s === null ? setList([]) : setList(s);
+  };
+
+  //きおくする
+  const setMemory = () => {
     const copiedList = [...list];
-    copiedList.push(text);
-    setList(copiedList);
+
+    if (text) {
+      copiedList.push(`${text}をきおくしたよ`);
+      setList(copiedList);
+      localStorage.setItem("list", JSON.stringify(copiedList));
+    } else {
+      alert("なにか書いてね");
+    }
     setText("");
   };
 
@@ -15,50 +32,56 @@ export const Action: FC = () => {
     setText(e.target.value);
   };
 
-  const listReset = () => {
+  //わすれる
+  const resetList = () => {
     setList([]);
+    setText("");
+    localStorage.removeItem("list");
   };
+
+  const BUTTON = [
+    {
+      click: setMemory,
+      action: "きおくする",
+    },
+    {
+      click: resetList,
+      action: "すべてわすれる",
+    },
+  ];
+
   return (
     <div className="text-center min-h-[200px] ">
-      <h1 className=" mb-6">
-        <span className="text-blue-700 font-bold">ぺんぺん</span>
-        したいことを書いてみよう
-      </h1>
-      <div className="flex flex-col items-center">
+      <h2 className="mb-6 text-blue-700 font-bold">
+        きおくしたいことを書いてみよう
+      </h2>
+      <p>現在の記憶数：{list.length}</p>
+
+      <div className="flex flex-col items-center max-w-[400px] mx-auto">
         <input
-          className="border p-2 mb-2"
+          className="border p-2 mb-2 w-3/4"
           type="text"
           onChange={updateValue}
           value={text}
         />
         <div>
-          <button
-            className=" bg-blue-700 text-white ml-2 p-2 rounded-lg"
-            onClick={handleClick}
-          >
-            ぺんぺんしてね
-          </button>
-          <button
-            className=" bg-blue-700 text-white ml-2 p-2 rounded-lg"
-            onClick={listReset}
-          >
-            気がすんだ？
-          </button>
+          {BUTTON.map((item, index) => (
+            <button
+              key={index}
+              className="className: bg-blue-700 text-white ml-2 p-2 rounded-lg "
+              onClick={item.click}
+            >
+              {item.action}
+            </button>
+          ))}
         </div>
       </div>
-
       <ul>
-        {list.map((item, index) =>
-          item ? (
-            <li key={index} className="mt-4">
-              {item}をぺんぺんしたよ
-            </li>
-          ) : (
-            <li key={index} className="mt-4">
-              何もぺんぺんしてないよ？
-            </li>
-          )
-        )}
+        {list.map((item, index) => (
+          <li key={index} className="mt-4">
+            {item}
+          </li>
+        ))}
       </ul>
     </div>
   );
