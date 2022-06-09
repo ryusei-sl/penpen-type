@@ -8,10 +8,7 @@ export const Action: FC = () => {
     const copiedList = [...list];
     copiedList.push(text);
     setList(copiedList);
-    console.log(list);
-
     setText("");
-    console.log(text);
   };
 
   const updateValue = (e: React.ChangeEvent<HTMLInputElement>) => {

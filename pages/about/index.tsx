@@ -1,4 +1,5 @@
 import { Header } from "components/Header";
+import { HexGame } from "components/HexGame";
 import Link from "next/link";
 
 const About = () => {
@@ -11,6 +12,7 @@ const About = () => {
       <Link href="/">
         <a className=" text-blue-400 hover:text-blue-600">back to home</a>
       </Link>
+      <HexGame />
     </div>
   );
 };
