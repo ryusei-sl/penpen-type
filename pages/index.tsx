@@ -1,7 +1,6 @@
 import { Action } from "components/Action";
 import { Header } from "components/Header";
 import { Headline } from "components/Headline";
-import { Lesson } from "components/Lesson";
 import type { NextPage } from "next";
 import Head from "next/head";
 
@@ -20,7 +19,6 @@ const Home: NextPage = () => {
       {/* コンテンツ */}
       <Header />
       <Headline />
-      <Lesson name={"山田太郎"} check={true} />
       <Action />
     </div>
   );
