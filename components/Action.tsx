@@ -8,6 +8,10 @@ export const Action: FC = () => {
     loadStorage();
   }, []);
 
+  const updateValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setText(e.target.value);
+  };
+
   //おもいだす
   const loadStorage = () => {
     const s = JSON.parse(localStorage.getItem("list") as string);
@@ -17,19 +21,10 @@ export const Action: FC = () => {
   //きおくする
   const setMemory = () => {
     const copiedList = [...list];
-
-    if (text) {
-      copiedList.push(`${text}をきおくしたよ`);
-      setList(copiedList);
-      localStorage.setItem("list", JSON.stringify(copiedList));
-    } else {
-      alert("なにか書いてね");
-    }
+    copiedList.push(`${text}をきおくしたよ`);
+    setList(copiedList);
+    localStorage.setItem("list", JSON.stringify(copiedList));
     setText("");
-  };
-
-  const updateValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setText(e.target.value);
   };
 
   //わすれる
@@ -48,7 +43,7 @@ export const Action: FC = () => {
   }[];
 
   const blue = "bg-blue-700 text-white ml-2 p-2 rounded-lg";
-  const gray = "text-white bg-zinc-500 ml-2 p-2 rounded-lg";
+  const gray = "text-text-zinc-700 bg-zinc-300 ml-2 p-2 rounded-lg";
 
   const BUTTON: button = [
     {
