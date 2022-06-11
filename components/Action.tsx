@@ -39,14 +39,28 @@ export const Action: FC = () => {
     localStorage.removeItem("list");
   };
 
-  const BUTTON = [
+  //ボタン
+  type button = {
+    click: () => void;
+    action: string;
+    disabled?: boolean;
+    color: string;
+  }[];
+
+  const blue = "bg-blue-700 text-white ml-2 p-2 rounded-lg";
+  const gray = "text-white bg-zinc-500 ml-2 p-2 rounded-lg";
+
+  const BUTTON: button = [
     {
       click: setMemory,
       action: "きおくする",
+      disabled: text ? false : true,
+      color: text ? blue : gray,
     },
     {
       click: resetList,
       action: "すべてわすれる",
+      color: blue,
     },
   ];
 
@@ -68,8 +82,9 @@ export const Action: FC = () => {
           {BUTTON.map((item, index) => (
             <button
               key={index}
-              className="className: bg-blue-700 text-white ml-2 p-2 rounded-lg "
+              className={item.color}
               onClick={item.click}
+              disabled={item.disabled}
             >
               {item.action}
             </button>
