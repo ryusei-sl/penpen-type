@@ -1,5 +1,5 @@
-import { Header } from "components/Header";
-import { HexGame } from "components/HexGame";
+import { Header } from "src/components/Header";
+import { HexGame } from "src/components/HexGame";
 import Link from "next/link";
 
 const About = () => {

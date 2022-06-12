@@ -1,4 +1,4 @@
-import React, { FC, ReactEventHandler, useCallback, useState } from "react";
+import React, { FC, useCallback, useState } from "react";
 
 export const HexGame: FC = () => {
   const [quiz, setQuiz] = useState<number[]>([]);

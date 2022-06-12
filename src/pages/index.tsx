@@ -1,6 +1,6 @@
-import { Action } from "components/Action";
-import { Header } from "components/Header";
-import { Headline } from "components/Headline";
+import { Action } from "src/components/Action";
+import { Header } from "src/components/Header";
+import { Headline } from "src/components/Headline";
 import type { NextPage } from "next";
 import Head from "next/head";
 

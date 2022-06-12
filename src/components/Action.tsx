@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from "react";
+import { button } from "src/types";
 
 export const Action: FC = () => {
   const [text, setText] = useState("");
@@ -33,14 +34,6 @@ export const Action: FC = () => {
     setText("");
     localStorage.removeItem("list");
   };
-
-  //ボタン
-  type button = {
-    click: () => void;
-    action: string;
-    disabled?: boolean;
-    color: string;
-  }[];
 
   const blue = "bg-blue-700 text-white ml-2 p-2 rounded-lg";
   const gray = "text-text-zinc-700 bg-zinc-300 ml-2 p-2 rounded-lg";
