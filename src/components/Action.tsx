@@ -5,18 +5,17 @@ export const Action: FC = () => {
   const [text, setText] = useState("");
   const [list, setList] = useState<string[]>([]);
 
+  const loadStorage = () => {
+    const s = JSON.parse(localStorage.getItem("list") as string);
+    s === null ? setList([]) : setList(s);
+  };
+
   useEffect(() => {
     loadStorage();
   }, []);
 
   const updateValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
-  };
-
-  //おもいだす
-  const loadStorage = () => {
-    const s = JSON.parse(localStorage.getItem("list") as string);
-    s === null ? setList([]) : setList(s);
   };
 
   //きおくする
